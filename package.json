@@ -1,0 +1,29 @@
+{
+  "name": "cleanblog",
+  "version": "1.0.0",
+  "description": "Blog sayfası",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasanbolatt/CleanBlog.git"
+  },
+  "keywords": [
+    "Blog"
+  ],
+  "author": "Hasan Bolat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hasanbolatt/CleanBlog/issues"
+  },
+  "homepage": "https://github.com/hasanbolatt/CleanBlog#readme",
+  "devDependencies": {
+    "prettier": "2.3.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
