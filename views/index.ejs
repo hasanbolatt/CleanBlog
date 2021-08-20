@@ -26,6 +26,8 @@
        
         <% for(let i =0; i<blogs.length; i++) { %>
 
+        <hr>
+
         <div class="post-preview">
           <a href="post.html">
             <h2 class="post-title">
@@ -35,7 +37,12 @@
               <%= blogs[i].detail %>
             </h3>
           </a>
+
+          <p class="post-meta"><%= blogs[i].dateCreated %></p>
+
         </div>
+
+        <hr>
 
         <% } %>
   

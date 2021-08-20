@@ -30,6 +30,7 @@ app.get('/', async (req, res) => {
     res.render('index', {
       blogs
     });
+})
 
 app.get('/about',(req,res)=>
 {
