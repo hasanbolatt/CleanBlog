@@ -1,6 +1,8 @@
 const express = require('express'); 
 const mongoose = require('mongoose');
+const fileUpload = require('express-fileupload');
 const path = require('path');
+const fs = require('fs');
 const Photo = require('./models/Blog');
 const ejs = require('ejs');
 const Blog = require('./models/Blog');
@@ -15,6 +17,7 @@ app.use(express.static('public'));
 app.set("view engine","ejs");
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(fileUpload());
 
 /*app.get('/',(req,res)=>{
     const blog = {
@@ -57,8 +60,20 @@ app.get('/add_post', (req, res) => {
 app.post('/blogs', async(req, res) => {
   
     //res.sendFile(path.resolve(__dirname,'temp/index.html'));
-    await Blog.create(req.body);
-    res.redirect('/');
+    //console.log(req.files.image);
+    //await Blog.create(req.body);
+    //res.redirect('/');
+    let uploadImage = req.files.image;
+    let uploadPath = __dirname + '/public/uploads/' + uploadImage.name;
+
+    uploadImage.mv(uploadPath, async() =>{
+      await Blog.create({
+        ...req.body,
+        image:'/uploads/' + uploadImage.name
+      });
+      res.redirect('/');
+    })
+   
   })
 
 const port = 4000;

@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const blogSchema = new Schema({
     title:String,
     detail:String,
+    image: String,
     
     //yükleme tarihi.
     dateCreated:{
